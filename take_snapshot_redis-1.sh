@@ -17,6 +17,8 @@ path_replay=${path}${postfix}
 ## copying
 #WL: not sure if the following is necessary ...
 # copy __ROOT in build
+
+
 # echo "Copying the 'build' dir ..."
 # rm -rf /root/demos/${path_replay}/occlum_instance/build/mount/__ROOT
 # cp -r /root/demos/${path}/occlum_instance/build/mount/__ROOT /root/demos/${path_replay}/occlum_instance/build/mount/__ROOT

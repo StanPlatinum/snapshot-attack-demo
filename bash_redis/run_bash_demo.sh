@@ -23,7 +23,15 @@ cp ../redis.conf.template image/etc/
 #WL: here redis.conf should be in image/etc
 cp ../read_config image/bin/
 
+
+cp ../hello_world image/bin/
+
 occlum build
+#WL: copy bash_redis to bash_redis_replay
+rm -rf ../../bash_redis_replay
+cp -r ../ ../../bash_redis_replay
+
+occlum run /bin/hello_world
 
 occlum run /bin/occlum_bash.sh
 #OCCLUM_LOG_LEVEL=trace occlum run /bin/occlum_bash_test.sh

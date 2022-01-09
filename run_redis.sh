@@ -10,7 +10,8 @@ path_replay=${path}${postfix}
 ## build the target fs
 echo "Building ..."
 rm -rf ${path_replay}
-cp -r ${path} ${path_replay}
+## WL:
+# cp -r ${path} ${path_replay}
 
 ## run the original fs
 echo "Running ..."

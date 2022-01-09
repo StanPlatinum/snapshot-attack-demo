@@ -44,9 +44,6 @@ int set_password(int input_fd, int output_fd, char *password) {
 	}
 
 	write(output_fd, "\0", 1);
-
-	close(output_fd);
-
 	return 0;
 }
 
@@ -85,7 +82,8 @@ int main(void) {
 	close(input_fd);
 	
 	//WL: do not close/flush the redis.conf in our initial demo
-	//close(output_fd);
+	//WL: always read the whole file if we close output file
+	close(output_fd);
 
 	return 0;
 }
