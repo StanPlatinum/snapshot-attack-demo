@@ -1,6 +1,9 @@
 deps/
+
 redis_src/
+
 occlum_instance/
 
 load_and_encrypt_config
+
 read_config
