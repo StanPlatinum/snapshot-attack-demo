@@ -29,8 +29,4 @@ echo "Copying the 'run' dir ..."
 rm -rf /root/demos/${path_replay}/occlum_instance/run/mount/__ROOT
 cp -r /root/demos/${path}/occlum_instance/run/mount/__ROOT /root/demos/${path_replay}/occlum_instance/run/mount/__ROOT
 
-echo "Image for replaying is prepared."
-## replay the program, not necessary
-# echo "Replaying..."
-# cd /root/demos/${path_replay}
-# make run
+echo "Step 1 Done."

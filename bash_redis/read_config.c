@@ -19,10 +19,11 @@ int main(void) {
 		return -1;
 	}
 	printf("Reading config file ...\n");
+
 	while ((flag = read(fd, buffer, BUFFER_SIZE)) > 0) {
 		times++;
 		//WL: debugging
-		if (times >= 47) {
+		if (times >= 48) {
 			printf("%s", buffer);
 		}
 	}

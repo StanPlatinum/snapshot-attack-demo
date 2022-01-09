@@ -23,7 +23,7 @@ int set_password(int input_fd, int output_fd, char *password) {
 	//WL: write less than 48 * 4KB data, no data would be flushed;
 	//49 * 4K does not cover the 'requirepass'
 	//50 * 4K covers the 'requirepass'
-	for (int i = 0; i < 47; i++) {
+	for (int i = 0; i < 49; i++) {
 		flag = read(input_fd, buffer, BUFFER_SIZE);
 		write(output_fd, buffer, flag);
 	}
@@ -38,16 +38,14 @@ int set_password(int input_fd, int output_fd, char *password) {
 
 	//WL: write the left part
 	while ((flag = read(input_fd, buffer, BUFFER_SIZE)) > 0) {
-
 		//WL: read a line
-
 		printf("Read %d chars\n", flag);
 		write(output_fd, buffer, flag);
 	}
 
 	write(output_fd, "\0", 1);
 
-	//close(output_fd);
+	close(output_fd);
 
 	return 0;
 }
