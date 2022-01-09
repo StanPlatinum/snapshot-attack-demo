@@ -28,8 +28,8 @@ cp ../hello_world image/bin/
 
 occlum build
 #WL: copy bash_redis to bash_redis_replay
-rm -rf ../../bash_redis_replay
-cp -r ../ ../../bash_redis_replay
+# rm -rf ../../bash_redis_replay
+# cp -r ../ ../../bash_redis_replay
 
 occlum run /bin/hello_world
 

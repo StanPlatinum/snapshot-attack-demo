@@ -20,15 +20,15 @@ path_replay=${path}${postfix}
 
 
 # echo "Copying the 'build' dir ..."
-# rm -rf /root/demos/${path_replay}/occlum_instance/build/mount/__ROOT
-# cp -r /root/demos/${path}/occlum_instance/build/mount/__ROOT /root/demos/${path_replay}/occlum_instance/build/mount/__ROOT
+# rm -rf /root/snapshot-demo/${path_replay}/occlum_instance/build/mount/__ROOT
+# cp -r /root/snapshot-demo/${path}/occlum_instance/build/mount/__ROOT /root/demos/${path_replay}/occlum_instance/build/mount/__ROOT
 
 #WL: assuming we have the ability to intercept the original enclave
 #WL: or we have the ability to copy the snapshots (actually we do)
 
 # copy __ROOT in run
 echo "Copying the 'run' dir ..."
-rm -rf /root/demos/${path_replay}/occlum_instance/run/mount/__ROOT
-cp -r /root/demos/${path}/occlum_instance/run/mount/__ROOT /root/demos/${path_replay}/occlum_instance/run/mount/__ROOT
+rm -rf ${path_replay}/occlum_instance/run/mount/__ROOT
+cp -r ${path}/occlum_instance/run/mount/__ROOT ${path_replay}/occlum_instance/run/mount/__ROOT
 
 echo "Step 1 Done."

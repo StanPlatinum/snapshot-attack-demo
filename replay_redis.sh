@@ -8,7 +8,7 @@ path_replay=${path}${postfix}
 
 ## replay the program, not necessary
 echo "Replaying ..."
-cd /root/demos/${path_replay}
+cd ${path_replay}
 
 #WL: just run redis-server
 pushd occlum_instance
