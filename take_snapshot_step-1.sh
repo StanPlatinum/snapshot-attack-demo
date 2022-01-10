@@ -15,16 +15,10 @@ path_replay=${path}${postfix}
 # cd ..
 
 ## copying
-#WL: not sure if the following is necessary ...
 # copy __ROOT in build
-
-
 # echo "Copying the 'build' dir ..."
 # rm -rf /root/snapshot-demo/${path_replay}/occlum_instance/build/mount/__ROOT
 # cp -r /root/snapshot-demo/${path}/occlum_instance/build/mount/__ROOT /root/demos/${path_replay}/occlum_instance/build/mount/__ROOT
-
-#WL: assuming we have the ability to intercept the original enclave
-#WL: or we have the ability to copy the snapshots (actually we do)
 
 # copy __ROOT in run
 echo "Copying the 'run' dir ..."
