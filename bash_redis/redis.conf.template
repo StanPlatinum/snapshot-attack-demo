@@ -1,6 +1,5 @@
 ###############################################################################
 
-
 # Redis configuration file for Slave 1
 
 # Note on units: when memory size is needed, it is possible to specify
@@ -391,7 +390,6 @@ repl-diskless-sync-delay 5
 # 150k passwords per second against a good box. This means that you should
 # use a very strong password otherwise it will be very easy to break.
 #
-# requirepass "redis"
 
 # Command renaming.
 #
@@ -1339,7 +1337,6 @@ repl-diskless-sync-delay 5
 # 150k passwords per second against a good box. This means that you should
 # use a very strong password otherwise it will be very easy to break.
 #
-# requirepass "redis"
 
 # Command renaming.
 #
@@ -2683,7 +2680,6 @@ repl-diskless-sync-delay 5
 # AUTH <password> as usually, or more explicitly with AUTH default <password>
 # if they follow the new protocol: both will work.
 #
-# requirepass notthisone
 
 # Command renaming (DEPRECATED).
 #
