@@ -8,7 +8,7 @@ We provide a Dockerfile for fast SDK/Occlum installation.
 
 #### Target program
 
-The victim program is running a bash-shell script (`occlum_bash.sh`). It first fetch a provisioned password, to genarate a customized Redis configuration file, with the "requirepass" entry filled. Then it invokes a Redis server, according to the customized config file.
+The victim program is running a bash-shell script (`occlum_bash.sh`). It first fetches a provisioned password, to generate a customized Redis configuration file, with the "requirepass" entry filled. Then it invokes a Redis server, according to the customized config file.
 
 To build the config generation program, run `make`. To build the Redis server, execute the following commands.
 
@@ -25,7 +25,7 @@ Run `run_redis.sh` at the victim terminal. This script will start up the target 
 
 #### Record
 
-The attacker needs to take snapshot (using `./take_snapshot_step-1.sh`) when he/she can determine that the snapshot is flushing. In our demo, we modified the untrusted part of Intel SGXSDK, to facilitate the attacker to decide the timing.
+The attacker needs to take a snapshot (using `./take_snapshot_step-1.sh`) when he/she can determine that the snapshot is flushing. In our demo, we modified the untrusted part of Intel SGXSDK, to facilitate the attacker to decide the timing.
 
 After the Redis server is running, run `./take_snapshot_step-2.sh` to complete the snapshot collection.
 
