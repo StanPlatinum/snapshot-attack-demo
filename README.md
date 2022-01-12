@@ -32,3 +32,9 @@ After the Redis server is running, run `./take_snapshot_step-2.sh` to complete t
 #### Replay
 
 The attacker executes `replay_redis.sh` to replay the enclave using our collected snapshot. Any client can log onto the Redis server without authentication.
+
+Example command for Redis client: 
+
+```
+redis-cli -h $Redis_Server_IP -p $Redis_Server_Port
+```
