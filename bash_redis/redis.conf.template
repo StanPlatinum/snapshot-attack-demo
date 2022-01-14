@@ -2878,7 +2878,6 @@ lazyfree-lazy-eviction no
 lazyfree-lazy-expire no
 lazyfree-lazy-server-del no
 
-#WL: comment the following
 # replica-lazy-flush no
 
 # It is also possible, for the case when to replace the user code DEL calls
@@ -2886,7 +2885,6 @@ lazyfree-lazy-server-del no
 # command to act exactly like UNLINK, using the following configuration
 # directive:
 
-#WL: comment the following
 # lazyfree-lazy-user-del no
 
 ################################ THREADED I/O #################################
@@ -2945,7 +2943,6 @@ lazyfree-lazy-server-del no
 # attempt to have background child processes killed before all others, and
 # replicas killed before masters.
 
-#WL: comment the following
 # oom-score-adj no
 
 # When oom-score-adj is used, this directive controls the specific values used
@@ -2960,7 +2957,6 @@ lazyfree-lazy-server-del no
 # starts. Because typically the initial value is 0, they will often match the
 # absolute values.
 
-#WL: comment the following
 # oom-score-adj-values 0 200 800
 
 ############################## APPEND ONLY MODE ###############################
@@ -3499,7 +3495,6 @@ hll-sparse-max-bytes 3000
 # max entires limit by setting max-bytes to 0 and max-entries to the desired
 # value.
 
-#WL:
 # stream-node-max-bytes 4096
 # stream-node-max-entries 100
 
@@ -3557,7 +3552,6 @@ activerehashing yes
 #
 # Both the hard or the soft limit can be disabled by setting them to zero.
 
-#WL:
 # client-output-buffer-limit normal 0 0 0
 # client-output-buffer-limit replica 256mb 64mb 60
 # client-output-buffer-limit pubsub 32mb 8mb 60
@@ -3592,7 +3586,6 @@ activerehashing yes
 # a good idea. Most users should use the default of 10 and raise this up to
 # 100 only in environments where very low latency is required.
 
-#WL:
 # hz 10
 
 # Normally it is useful to have an HZ value which is proportional to the
@@ -3610,7 +3603,6 @@ activerehashing yes
 # instance will use very little CPU time while a busy instance will be
 # more responsive.
 
-#WL:
 # dynamic-hz yes
 
 # When a child rewrites the AOF file, if the following option is enabled
@@ -3618,7 +3610,6 @@ activerehashing yes
 # in order to commit the file to the disk more incrementally and avoid
 # big latency spikes.
 
-#WL:
 # aof-rewrite-incremental-fsync yes
 
 # When redis saves RDB file, if the following option is enabled
@@ -3745,7 +3736,6 @@ activerehashing yes
 
 # Jemalloc background thread for purging will be enabled by default
 
-#WL:
 # jemalloc-bg-thread yes
 
 # It is possible to pin different threads and processes of Redis to specific
@@ -3776,7 +3766,6 @@ activerehashing yes
 ###############################################################################
 
 
-#WL:
 
 ###############################################################################
 
@@ -3848,7 +3837,7 @@ activerehashing yes
 # JUST COMMENT OUT THE FOLLOWING LINE.
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#WL: in container
+## Settings in container
 bind 0.0.0.0
 
 # Protected mode is a layer of security protection, in order to avoid that
@@ -3869,7 +3858,7 @@ bind 0.0.0.0
 # even if no authentication is configured, nor a specific set of interfaces
 # are explicitly listed using the "bind" directive.
 
-#WL: in container, disable protected mode if the outside want to access
+## Settings in container, disable protected mode if the outside want to access
 protected-mode no
 
 # Accept connections on the specified port, default is 6379 (IANA #815344).
@@ -4139,7 +4128,6 @@ dbfilename dump.rdb
 # to use diskless replication on both master and replicas instances. However
 # in the case of replicas, diskless is not always an option.
 
-#WL: comment below but do not know why
 # rdb-del-sync-files no
 
 # The working directory.
@@ -4207,7 +4195,6 @@ dir ./
 #    HOST and LATENCY.
 #
 
-#WL:
 # replica-serve-stale-data yes
 
 # You can configure a replica instance to accept writes or not. Writing against
@@ -4225,7 +4212,6 @@ dir ./
 # security of read only replicas using 'rename-command' to shadow all the
 # administrative / dangerous commands.
 
-#WL:
 # replica-read-only yes
 
 # Replication SYNC strategy: disk or socket.
@@ -4294,7 +4280,6 @@ repl-diskless-sync-delay 5
 #                 the data directly from the socket. note that this requires
 #                 sufficient memory, if you don't have it, you risk an OOM kill.
 
-#WL: 
 # repl-diskless-load disabled
 
 # Replicas send PINGs to server in a predefined interval. It's possible to
@@ -4371,7 +4356,6 @@ repl-disable-tcp-nodelay no
 #
 # By default the priority is 100.
 
-#WL:
 # replica-priority 100
 
 # It is possible for a master to stop accepting writes if there are less than
@@ -4516,13 +4500,6 @@ repl-disable-tcp-nodelay no
 #  allkeys      Alias for ~*
 #  resetkeys    Flush the list of allowed keys patterns.
 #  ><password>  Add this password to the list of valid password for the user.
-#                                                                           
-#                                                                           
-#                                                                           
-#WL: here is the 48 * 4KB
-#
-#
-#
 #               For example >mypass will add "mypass" to the list.
 #               This directive clears the "nopass" flag (see later).
 #  <<password>  Remove this password from the list of valid passwords.
@@ -4571,7 +4548,6 @@ repl-disable-tcp-nodelay no
 # by ACLs. The ACL Log is stored in memory. You can reclaim memory with 
 # ACL LOG RESET. Define the maximum entry length of the ACL Log below.
 
-#WL:
 # acllog-max-len 128
 
 # Using an external ACL file
@@ -4592,7 +4568,7 @@ repl-disable-tcp-nodelay no
 # AUTH <password> as usually, or more explicitly with AUTH default <password>
 # if they follow the new protocol: both will work.
 
-#WL: critical config's here!!!
+## Critical config's here!!!
 requirepass foobared
 
 # Command renaming (DEPRECATED).
@@ -4792,7 +4768,6 @@ lazyfree-lazy-eviction no
 lazyfree-lazy-expire no
 lazyfree-lazy-server-del no
 
-#WL: 
 # replica-lazy-flush no
 
 # It is also possible, for the case when to replace the user code DEL calls
@@ -4800,7 +4775,6 @@ lazyfree-lazy-server-del no
 # command to act exactly like UNLINK, using the following configuration
 # directive:
 
-#WL:
 # lazyfree-lazy-user-del no
 
 ################################ THREADED I/O #################################
@@ -4859,7 +4833,6 @@ lazyfree-lazy-server-del no
 # attempt to have background child processes killed before all others, and
 # replicas killed before masters.
 
-#WL: 
 # oom-score-adj no
 
 # When oom-score-adj is used, this directive controls the specific values used
@@ -5412,7 +5385,6 @@ hll-sparse-max-bytes 3000
 # max entires limit by setting max-bytes to 0 and max-entries to the desired
 # value.
 
-#WL:
 # stream-node-max-bytes 4096
 # stream-node-max-entries 100
 
@@ -5471,7 +5443,6 @@ activerehashing yes
 # Both the hard or the soft limit can be disabled by setting them to zero.
 client-output-buffer-limit normal 0 0 0
 
-#WL:
 # client-output-buffer-limit replica 256mb 64mb 60
 client-output-buffer-limit pubsub 32mb 8mb 60
 
@@ -5521,7 +5492,6 @@ hz 10
 # instance will use very little CPU time while a busy instance will be
 # more responsive.
 
-#WL:
 # dynamic-hz yes
 
 # When a child rewrites the AOF file, if the following option is enabled
@@ -5535,7 +5505,6 @@ aof-rewrite-incremental-fsync yes
 # in order to commit the file to the disk more incrementally and avoid
 # big latency spikes.
 
-#WL:
 # rdb-save-incremental-fsync yes
 
 # Redis LFU eviction (see maxmemory setting) can be tuned. However it is a good
@@ -5656,7 +5625,6 @@ aof-rewrite-incremental-fsync yes
 
 # Jemalloc background thread for purging will be enabled by default
 
-#WL: my last comment
 # jemalloc-bg-thread yes
 
 # It is possible to pin different threads and processes of Redis to specific

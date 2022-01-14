@@ -28,7 +28,24 @@ Run `run_redis.sh` at the victim terminal. This script will start up the target 
 
 #### Record phase
 
-The attacker needs to take a snapshot (using `./take_snapshot_step-1.sh`) when he/she can determine that the snapshot is flushing. In the demo, the attacker can get a clear notice from the victim's terminal to launch the 'take snapshot' script. This is because we modified the untrusted part of Intel SGX SDK, printing helper messages to facilitate the attacker to decide the timing.
+The attacker needs to take a snapshot (using `./take_snapshot_step-1.sh`) when he/she can determine that the snapshot is flushing. In the demo, the attacker can get a clear notice from the victim's terminal as follows.
+
+```
+...
+Run ./take_snapshot_step-1.sh NOW!
+Run ./take_snapshot_step-1.sh NOW!
+line 4522: # passwords, then flags, or key patterns. However note that the additive
+Run ./take_snapshot_step-1.sh NOW!
+line 4523: # and subtractive rules will CHANGE MEANING depending on the ordering.
+Run ./take_snapshot_step-1.sh NOW!
+line 4524: # For instance see the following example:
+Run ./take_snapshot_step-1.sh NOW!
+...
+```
+
+Launch the `./take_snapshot_step-1.sh` script on the attacker's terminal.
+ 
+If you build Occlum with our modified SGX SDK, you will see more hint message. This is because we modified the untrusted part of Intel SGX SDK, printing helper messages to facilitate the attacker to decide the timing.
 
 After the Redis server is running, run `./take_snapshot_step-2.sh` to complete the snapshot collection.
 
@@ -41,3 +58,21 @@ Example command for Redis client:
 ```
 redis-cli -h $Redis_Server_IP -p $Redis_Server_Port
 ```
+
+#### Note
+
+Sometimes the demo fails due to Occlum's integrity check. You probably see the following message.
+
+```
+Replaying ...
+~/snapshot-demo/bash_redis_replay/occlum_instance ~/snapshot-demo/bash_redis_replay
+In: writing meta-data in write_all_changes_to_disk
+In: writing meta-data in write_all_changes_to_disk
+Error: Os { code: 22, kind: InvalidInput, message: "Invalid argument" }
+[ERROR] occlum-pal: The init process exit with code: 1 (line 59, file src/pal_api.c)
+[ERROR] occlum-pal: Failed to run the init process: EINVAL (line 129, file src/pal_api.c)
+```
+
+Simply run the demo again (from the record phase). The error will gone for good.
+
+GL & HF!

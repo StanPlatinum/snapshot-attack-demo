@@ -8,8 +8,5 @@ load_and_encrypt_config
 busybox echo "Redis config file prepared."
 busybox sleep 1
 
-# busybox echo "Checking config file ..."
-# read_config
-
 busybox echo "Starting up a Redis server ..."
 redis-server /etc/redis.conf --save "" --appendonly no &
