@@ -22,11 +22,19 @@ cd bash_redis
 
 ### Run the demo
 
-Prepare 2 terminals, one for the victim and one for the attacker.
+#### Make sure that the victim Redis program works
 
-Run `run_redis.sh` at the victim terminal. This script will start up the target program.
+Open a terminal for the victim. Run `run_redis.sh`, checking if the Redis server works well.
 
-#### Record phase
+Using command `redis-cli -h $Redis_Server_IP -p $Redis_Server_Port -a admin123456` to verify whether the password (admin123456) has been set in the config file.
+
+Press `ctrl + C` to terminate the Redis server.
+
+#### Snapshot capture
+
+Prepare 2 terminals, one for the victim and one for the attacker. You can only open one more terminal (for the attacker) if one terminal has been opened already for the victim.
+
+Run `run_redis.sh` at the victim terminal again. This script will start up the target program.
 
 The attacker needs to take a snapshot (using `./take_snapshot_step-1.sh`) when he/she can determine that the snapshot is flushing. In the demo, the attacker can get a clear notice from the victim's terminal as follows.
 
@@ -49,7 +57,7 @@ If you build Occlum with our modified SGX SDK, you will see more hint message. T
 
 After the Redis server is running, run `./take_snapshot_step-2.sh` to complete the snapshot collection.
 
-#### Replay phase
+#### Enclave replay
 
 The attacker executes `replay_redis.sh` to replay the enclave using our collected snapshot. Any client can log onto the Redis server without authentication.
 

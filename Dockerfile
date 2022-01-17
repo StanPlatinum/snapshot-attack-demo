@@ -11,7 +11,7 @@ RUN git clone -b sgx_2.15.1_for_occlum https://github.com/StanPlatinum/linux-sgx
 
 # Download the Occlum source
 WORKDIR /root
-RUN git clone https://github.com/occlum/occlum.git && \
+RUN git clone -b v0.26.1 https://github.com/occlum/occlum.git && \
     cp -r /root/occlum/tools/toolchains/* /tmp/ && mkdir -p /opt/occlum/ && \
     cp /root/occlum/tools/docker/start_aesm.sh /opt/occlum/
 
