@@ -65,7 +65,12 @@ Example command for Redis client:
 
 ```
 redis-cli -h $Redis_Server_IP -p $Redis_Server_Port
+keys *
 ```
+
+If a message of `(error) NOAUTH Authentication required.` is prompted, it means you will need a password to access the Redis server. Type `auth $Your_Password` to pass the authentication. Use `auth admin123456` in this demo.
+
+If a message of `(empty array)` is prompted, it means you do not need a password to access the Redis server.
 
 #### Note
 
@@ -81,6 +86,6 @@ Error: Os { code: 22, kind: InvalidInput, message: "Invalid argument" }
 [ERROR] occlum-pal: Failed to run the init process: EINVAL (line 129, file src/pal_api.c)
 ```
 
-Simply run the demo again (from the record phase). The error will gone for good.
+Simply run the demo again (from the record phase), then the error will be gone for good.
 
 GL & HF!
