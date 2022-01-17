@@ -1,6 +1,4 @@
-## original path: hello_c
-## dest path: hello_replay
-# path="hello_c"
+## Set path
 path=bash_redis
 
 postfix="_replay"
