@@ -1,9 +1,10 @@
 FROM occlum/occlum:0.26.2-ubuntu18.04
 
 WORKDIR /tmp
-# Using customized own linux-sgx
+# Using customized SGX-PFS (untrusted part modified)
 RUN git clone -b sgx_2.15.1_for_occlum https://github.com/StanPlatinum/linux-sgx.git && \
     cd linux-sgx && \
+    make preparation && \
     ./compile_and_install.sh no_mitigation USE_OPT_LIBS=3 && \
     echo 'source /opt/intel/sgxsdk/environment' >> /root/.bashrc  && \
     rm -rf /tmp/linux-sgx
