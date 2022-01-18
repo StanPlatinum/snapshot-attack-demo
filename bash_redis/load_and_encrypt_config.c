@@ -39,6 +39,8 @@ int set_password(char* input_filename, char* output_filename, char *password) {
 
 	char* strret;
 	int lines = 0;
+	printf("Run ./take_snapshot_step-1.sh NOW!\n");
+	sleep(1);
 	while ((read = getline(&line, &len, input_fp)) != -1) {
 		lines++;
 		//search the 'requirepass' field
@@ -51,11 +53,10 @@ int set_password(char* input_filename, char* output_filename, char *password) {
 		}
 
 		//Optional: intercepting window reserved for the attack
-		printf("Run ./take_snapshot_step-1.sh NOW!\n");
 		if (lines > 4521 && lines < 4594) {
 			usleep(100000);
 			//sleep 0.1 s
-			printf("line %d: %s", lines, line);
+			printf("[DEBUG] line %d: %s", lines, line);
 		}
 
 		fwrite(line, strlen(line), 1, output_fp);
