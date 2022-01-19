@@ -6,7 +6,7 @@
 
 First of all, anyone willing to run the demo must install Occlum and modified SGX SDK (optional). We provide a Dockerfile for fast Occlum/SDK installation. The modified SGX SDK is to help the attacker to decide the timing.
 
-You can also install Occlum on the host machine. Either way, you will need to install [Intel SGX driver](https://github.com/intel/linux-sgx-driver) on your host first, or use a in-kernel SGX driver. 
+You can also install Occlum on the host machine. (Please refer to https://github.com/occlum/occlum for more installation details.) Either way, you will need to install [Intel SGX driver](https://github.com/intel/linux-sgx-driver) on your host first, or use a in-kernel SGX driver. 
 
 ```
 (sudo) docker build -t $Your_Image_Name .
@@ -18,7 +18,7 @@ After the image is built, run
 (sudo) docker run -it --privileged -p $Redis_Server_Port:6379 -v $Host_SGX_Driver_Path:/dev/sgx --name "snapshot-demo" $Your_Image_Name
 ```
 
-Here `$Redis_Server_Port` is the host port number that you would like to expose for the in-container Redis server, while `$Host_SGX_Driver_Path` is the device path of your installed SGX driver.
+Here `$Redis_Server_Port` is the host port number that you would like to expose for the in-container Redis server, while `$Host_SGX_Driver_Path` is the abovementioned device path of your installed SGX driver.
 
 
 #### Build the target program
@@ -63,7 +63,7 @@ line 4524: # For instance see the following example:
 
 Launch the `./take_snapshot_step-1.sh` script on the attacker's terminal.
  
-If you build Occlum with our modified SGX SDK, you will see more hint message. This is because we modified the untrusted part of Intel SGX SDK, printing helper messages to facilitate the attacker to decide the timing.
+If you build Occlum with our modified SGX SDK, you will see more hint message. This is because we modified the untrusted part of Intel SGX SDK, printing helper messages to facilitate the attacker to decide the timing. For attacker's convenience, we reserve [time slots](https://github.com/StanPlatinum/snapshot-demo/blob/main/demo/bash_redis/load_and_encrypt_config.c#L57) to allow the attacker to run `./take_snapshot_step-1.sh`. In fact, the attacker who has host root privilege could intercept the enclave execution and capture any snapshots by modifying the untrusted part of SGX SDK.
 
 Once upon the Redis server is up and running, run `./take_snapshot_step-2.sh` to complete the snapshot collection.
 
