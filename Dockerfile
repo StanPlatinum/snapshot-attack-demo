@@ -15,7 +15,7 @@ RUN git clone -b v0.26.1 https://github.com/occlum/occlum.git && \
     cp -r /root/occlum/tools/toolchains/* /tmp/ && mkdir -p /opt/occlum/ && \
     cp /root/occlum/tools/docker/start_aesm.sh /opt/occlum/
 
-## Re-install occlum
+## Re-install Occlum
 WORKDIR /root
 SHELL ["/bin/bash", "-c"]
 RUN cd occlum && \
@@ -25,3 +25,8 @@ RUN cd occlum && \
     make install && \
     rm -rf /root/occlum
 
+## Copy the demo into this image
+WORKDIR /root
+COPY demo/ snapshot-demo/
+
+WORKDIR /root/snapshot-demo
