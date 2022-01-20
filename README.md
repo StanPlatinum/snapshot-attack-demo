@@ -2,9 +2,9 @@
 
 ### Build the demo
 
-#### Install Occlum and modified SGXSDK (optional)
+#### Install Intel SGX SDK and Occlum
 
-First of all, anyone willing to run the demo must install Occlum and modified SGX SDK (optional). We provide a Dockerfile for fast Occlum/SDK installation. The modified SGX SDK is to help the attacker to decide the timing.
+First of all, anyone willing to run the demo must install Intel SGX SDK and Occlum (you can choose to use our modified SGX SDK). We provide a Dockerfile for fast Occlum/SDK installation. The modified SGX SDK is to help the attacker to decide the timing.
 
 You can also install Occlum on the host machine. (Please refer to https://github.com/occlum/occlum for more installation details.) Either way, you will need to install [Intel SGX driver](https://github.com/intel/linux-sgx-driver) on your host first, or use a in-kernel SGX driver. 
 
