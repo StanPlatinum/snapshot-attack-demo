@@ -1,5 +1,7 @@
 # Snapshot Attack Demo
 
+Thanks Intel for the [Security Advisory](https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00691.html)
+
 ### Build the demo
 
 #### Install Intel SGX SDK and Occlum
