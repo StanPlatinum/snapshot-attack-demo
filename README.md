@@ -1,6 +1,6 @@
 # Snapshot Attack Demo
 
-Thanks Intel for the [Security Advisory](https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00691.html)
+This is the original demo of Unanticipated Snapshot Attack found by us. Thanks Intel for the [Security Advisory](https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00691.html).
 
 ### Build the demo
 
